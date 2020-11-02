@@ -5,7 +5,7 @@ import event.ClientReceiveMessageEvent;
 import event.ClientSendMessageEvent;
 import event.ServerBroadcastMessageEvent;
 import ui.LoginFrame;
-import ui.MainFrame;
+import ui.ClientMainFrame;
 
 import java.awt.*;
 import java.io.IOException;
@@ -32,16 +32,15 @@ public class ChatroomClient {
     }
 
     private Socket clientSocket;
-    private MainFrame mainFrame;
+    private ClientMainFrame clientMainFrame;
     private LoginFrame loginFrame;
 
     private String nickName;
 
     public static void main(String[] args) {
-        ChatroomClient client = new ChatroomClient();
-
         // open a login frame
         EventQueue.invokeLater(() -> {
+            ChatroomClient client = new ChatroomClient();
             client.loginFrame = new LoginFrame(client);
             client.loginFrame.setVisible(true);
         });
@@ -69,8 +68,8 @@ public class ChatroomClient {
 
         // open a main frame
         EventQueue.invokeLater(() -> {
-            mainFrame = new MainFrame(this);
-            mainFrame.setVisible(true);
+            clientMainFrame = new ClientMainFrame(this);
+            clientMainFrame.setVisible(true);
         });
 
         // start a new thread for event handling
@@ -94,12 +93,12 @@ public class ChatroomClient {
         return this;
     }
 
-    public MainFrame getMainFrame() {
-        return mainFrame;
+    public ClientMainFrame getMainFrame() {
+        return clientMainFrame;
     }
 
-    public ChatroomClient setMainFrame(MainFrame mainFrame) {
-        this.mainFrame = mainFrame;
+    public ChatroomClient setMainFrame(ClientMainFrame clientMainFrame) {
+        this.clientMainFrame = clientMainFrame;
         return this;
     }
 

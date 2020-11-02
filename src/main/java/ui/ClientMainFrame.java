@@ -18,7 +18,7 @@ import java.io.IOException;
  * @author Tomoto
  * @date 2020/10/26 20:25
  */
-public class MainFrame extends JFrame {
+public class ClientMainFrame extends JFrame {
     private static final Integer DEFAULT_WIDTH = 640;
     private static final Integer DEFAULT_HEIGHT = 480;
 
@@ -27,7 +27,7 @@ public class MainFrame extends JFrame {
     private final JTextArea messageBox; // history message box
     private final JTextArea inputBox; // message input box
 
-    public MainFrame(ChatroomClient client) {
+    public ClientMainFrame(ChatroomClient client) {
         setLayout(new GridBagLayout());
         setTitle("Chatroom -by Tomoto");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
