@@ -57,7 +57,20 @@ public class AccountService implements Service {
     }
 
     /**
-     * Resets the nickname of the account.
+     * Gets account nickname.
+     * @param accountName an account name
+     * @return the account nickname or null if not exists
+     */
+    public String getNickName(String accountName) {
+        Account account = dao.read(accountName);
+        if (account != null) {
+            return account.getNickname();
+        }
+        return null;
+    }
+
+    /**
+     * Resets account nickname.
      * @param accountName an account name
      * @param nickname    new nickname
      * @return whether reset successful
@@ -65,7 +78,7 @@ public class AccountService implements Service {
     public Boolean resetNickname(String accountName, String nickname) {
         Account account = dao.read(accountName);
         if (account != null) {
-            account.setName(nickname);
+            account.setNickname(nickname);
             dao.update(accountName, account);
             return true;
         } else { // if account not exists
@@ -74,7 +87,20 @@ public class AccountService implements Service {
     }
 
     /**
-     * Reset the password of thea account.
+     * Get account password.
+     * @param accountName an account name
+     * @return the account password or null if not exists
+     */
+    public String getPassword(String accountName) {
+        Account account = dao.read(accountName);
+        if (account != null) {
+            return account.getPassword();
+        }
+        return null;
+    }
+
+    /**
+     * Reset account password.
      * @param accountName an account name
      * @param password    new password
      * @return whether reset successful
