@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * Super class of all event classes.
  * <p>
- * Client and server communicate through events.
+ * Client and service.server communicate through events.
  *
  * @author Tomoto
  * @date 2020/10/27 17:58
